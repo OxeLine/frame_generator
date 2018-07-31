@@ -4,6 +4,7 @@ import sys
 import cv2
 import keyboard as kb
 import numpy as np
+from write_data import save_data
 
 if len(sys.argv) == 1:
     print('Usage: ' + sys.argv[0] + ' (file to save)')
@@ -24,6 +25,7 @@ while True:
     data.append(cv2.resize(gray, (160, 90)))
     i +=1
     if (i >= 3):
+        save_data(data)
         data = []
         i = 0
     cv2.imshow('frame', frame)
